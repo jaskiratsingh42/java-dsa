@@ -2,12 +2,12 @@ package dsa;
 
 public class MyArray<T> {
 	
-	private int length;
-	private T data[] =(T[])new Object[length];
+	private int size;
+	private T data[] =(T[])new Object[size];
 	
-	MyArray(T[] data,int length) {
+	MyArray(T[] data, int size) {
 		this.data = data;
-		this.length = length;
+		this.size = size;
 	}
 	
 	public T get(int index) {
@@ -15,47 +15,64 @@ public class MyArray<T> {
 	}
 	
 	public void set(int index, T value) {
-		if(index < 0 || index >= length) {
+		if(index < 0 || index >= size) {
 			return;
 		}
 		data[index] = value;
 	}
 	
 	public void insert(int index, T value) {
-		if(index < 0 || index >= length) {
+		if(index < 0 || index >= size) {
 			return;
 		}
-		for(int i = length-1; i > index; i--) {
+		for(int i = size-1; i > index; i--) {
 			data[i] = data[i-1];
 		}
 		data[index] = value;
 	}
 	
 	public void remove(int index) {
-		if(index < 0 || index >= length) {
+		if(index < 0 || index >= size) {
 			return;
 		}
-		for(int i = index; i < length-1; i++) {
+		for(int i = index; i < size-1; i++) {
 			data[i] = data[i+1];
 		}
 	}
 	
 //	This is linear Search - returns index if element found else returns -1
 	public int search(T elem) {
-		for(int i =0; i < length; i++) {
+		for(int i =0; i < size; i++) {
 			if(data[i] == elem) {
 				return i;
 			}
 		}
-		return  -1;
+		return -1;
 	}
-	
+	// Reversing the Array by swapping elements from start & end
+	public void reverse() {
+		int i = 0,j = size-1;
+		while(i<j)
+		{
+	  	   T temp = data[i];
+		   data[i] = data[j];
+		   data[j] = temp;
+		   i++;
+		   j--;
+		}
+	}
+	// Reversing the Array by swapping elements from start & end
+//	public void leftRotate(int rotDigit) {
+//		if(rotDigit > 0) {
+//			
+//		}
+//	}
+//	
 	public void print(){
 		System.out.println("The Entire Array is-");
-		for(int i =0; i < length; i++) {
+		for(int i =0; i < size; i++) {
 			System.out.println(data[i]);	
 		}
-		
 	}
 	
 	public static void main(String[] args) {
@@ -65,7 +82,7 @@ public class MyArray<T> {
 		MyArray arr = new MyArray(a,5);
 		
 //		Using MyArray Methods
-		arr.print();
+//		arr.print();
 		System.out.println("0th Element is:- " + arr.get(0));
 //		arr.set(1, 0);
 		arr.insert(0,5);
@@ -73,6 +90,8 @@ public class MyArray<T> {
 		arr.remove(0);
 		arr.print();
 		System.out.println("Searching ELement 3, index is: " + arr.search(3));
+		arr.reverse();
+		arr.print();
 	}
 
 }
