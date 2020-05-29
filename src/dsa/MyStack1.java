@@ -1,7 +1,7 @@
 package dsa;
 
 public class MyStack1<E> {
-	
+	/* Generic Stack implemented using Java Array */
 	E data[];
 	int top;
 	int size;
@@ -43,7 +43,9 @@ public class MyStack1<E> {
 		}
 		return data[top];
 	}
-	
+	/* Peek any element present in Stack by passing Argument as
+	 * position of element (with reference to the top as start(0) rather than actual start)
+	 */
 	public E peek(int pos) {
 		int index = top-pos+1;
 		if(index < 0) {
