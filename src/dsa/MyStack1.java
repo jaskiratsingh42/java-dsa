@@ -2,11 +2,11 @@ package dsa;
 
 public class MyStack1<E> {
 	/* Generic Stack implemented using Java Array */
-	E data[];
-	int top;
-	int size;
-		
-	public MyStack1(Class<E>dataType,int size) {
+	private E data[];
+	private int top;
+	private int size;
+	
+	public MyStack1(Class<E> dataType,int size) {
 		super();
         this.data = (E[]) java.lang.reflect.Array.newInstance(dataType, size);
 		this.top = -1;

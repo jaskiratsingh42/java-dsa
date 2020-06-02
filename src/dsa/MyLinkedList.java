@@ -2,8 +2,8 @@ package dsa;
 
 public class MyLinkedList<E> {
 //	Implementation with only Head Reference & size
-	Node<E> head = null;
-	int size = 0;
+	private Node<E> head = null;
+	private int size = 0;
 	
 	//Insert Element at the end of List
 	void add(E data) {

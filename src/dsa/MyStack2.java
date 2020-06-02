@@ -2,9 +2,9 @@ package dsa;
 
 public class MyStack2<E> {
 	/* Generic Stack Implemented Using MyLinkedList class */
-	MyLinkedList<E> data;
-	int top;
-	int size;
+	private MyLinkedList<E> data;
+	private int top;
+	private int size;
 		
 	public MyStack2(MyLinkedList<E> data,int size) {
 		super();
